@@ -99,9 +99,8 @@ local function positionPanel()
         and anchor:GetBottom() - form:GetBottom() >= panel:GetHeight() + 38 then
         panel:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", 0, -10)
     else
-        -- Long descriptions/reagent lists must not be covered. Keep the same
-        -- compact panel attached just below the profession window in that case.
-        panel:SetPoint("TOPLEFT", ProfessionsFrame, "BOTTOMLEFT", 320, -5)
+        -- Keep the table inside the crafting pane, above its bottom controls.
+        panel:SetPoint("BOTTOMLEFT", form, "BOTTOMLEFT", 20, 38)
     end
 end
 
