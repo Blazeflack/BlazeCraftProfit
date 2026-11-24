@@ -8,3 +8,6 @@
 !/README.md
 !/CHANGELOG.md
 !/LICENSE
+!/images/
+/images/*
+!/images/crafting.png

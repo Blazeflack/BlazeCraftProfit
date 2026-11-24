@@ -6,6 +6,8 @@ The selected recipe shows two material costs: minimum auction prices and market 
 Each cost has two profits, selling the full craft at minimum or market value, after the AH fee.
 Positive profit is green; negative profit is red. Hover the panel for full amounts and details.
 
+![BlazeCraftProfit showing crafting costs and profits for Black Silk Pack](images/crafting.png)
+
 Vendor purchase prices take priority in both cost calculations. Opening a merchant records
 money-only, unlimited-stock offers at their per-item price. Prices are saved per character,
 including the discount offered on that visit. Until a price is learned, Goldwright prices apply.
