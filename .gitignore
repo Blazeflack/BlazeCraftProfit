@@ -1,0 +1,10 @@
+# Publish only addon source, user documentation and license.
+/*
+!/.gitignore
+!/BlazeCraftProfit.toc
+!/Prices.lua
+!/Crafting.lua
+!/Interface.lua
+!/README.md
+!/CHANGELOG.md
+!/LICENSE

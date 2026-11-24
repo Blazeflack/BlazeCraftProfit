@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: BlazeCraftProfit
+## Notes: Crafting costs and profits using Goldwright minimum and market prices.
+## Author: Blazeflack
+## Version: 0.1.0
+## OptionalDeps: Goldwright
+## SavedVariablesPerCharacter: BlazeCraftProfitDB
+
+Prices.lua
+Crafting.lua
+Interface.lua
