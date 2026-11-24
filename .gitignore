@@ -11,3 +11,13 @@
 !/images/
 /images/*
 !/images/crafting.png
+!/.pkgmeta
+!/.github/
+/.github/*
+!/.github/scripts/
+!/.github/workflows/
+/.github/scripts/*
+!/.github/scripts/package_addon.py
+/.github/workflows/*
+!/.github/workflows/release-addon.yml
+!/.github/workflows/validate-addon.yml

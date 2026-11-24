@@ -1,0 +1,19 @@
+package-as: BlazeCraftProfit
+enable-nolib-creation: no
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - README.md
+  - images
+  - .github
+  - tests
+  - AGENTS.md
+  - RELEASING.md
+  - DEVELOPMENT.md
+  - api.json
+
+  - curseforge
+  - .gitignore
