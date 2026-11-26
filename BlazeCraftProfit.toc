@@ -2,7 +2,7 @@
 ## Title: BlazeCraftProfit
 ## Notes: Crafting costs and profits using Goldwright minimum and market prices.
 ## Author: Blazeflack
-## Version: 0.1.0
+## Version: 0.1.1
 ## OptionalDeps: Goldwright
 ## SavedVariablesPerCharacter: BlazeCraftProfitDB
 

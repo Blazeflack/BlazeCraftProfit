@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-11-26
+
+- Add scrolling to keep crafting costs accessible when recipe materials fill the crafting window.
+- Show a compact crafting cost display beside the enchant target slot, while retaining the full profit table for craftable items within Enchanting.
+- Identify Bind on Pickup outputs with a “Cannot be auctioned (BoP)” heading and hide their profit columns while keeping crafting costs visible.
+
 ## 0.1.0 — 2026-11-24
 
 - Show crafting costs directly in the WoW Forever crafting window using Goldwright minimum prices and market value.

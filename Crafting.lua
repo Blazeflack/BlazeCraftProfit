@@ -97,18 +97,24 @@ function ns.ReadRecipe(form)
         transaction and transaction:GetAllocationItemGUID() or nil)
     local itemID = output and ns.Positive(output.itemID) or ns.Positive(schematic.outputItemID)
     local saleable = false
+    local itemBindType
     if itemID then
         local _, _, _, _, _, _, _, _, _, _, _, _, _, bindType = C_Item.GetItemInfo(itemID)
+        itemBindType = ns.Number(bindType)
         -- Uncached or bound outputs must not acquire a speculative AH profit.
-        saleable = ns.Number(bindType) == 0 or ns.Number(bindType) == 2 or ns.Number(bindType) == 3
+        saleable = itemBindType == 0 or itemBindType == 2 or itemBindType == 3
     end
     -- A direct enchant modifies a target item: its AH value is not recipe revenue.
     -- Pricing scrolls would also require a verified scroll mapping and vellum cost.
     if info.isEnchantingRecipe then saleable = false end
     local result = ns.Calculate(schematic, allocations, itemID, ns.Market(), saleable)
+    -- ItemBind.OnAcquire = 1 in Forever's ItemConstantsDocumentation.
+    result.isBindOnPickup = itemBindType == 1 and not info.isEnchantingRecipe
     if schematic.isRecraft or info.isSalvageRecipe or info.isGatheringRecipe then
         result.costs, result.profits = {}, { {}, {} }
         result.note = "This recipe type is not priced."
+    elseif result.isBindOnPickup then
+        result.note = "The crafted item is Bind on Pickup and cannot be auctioned."
     elseif not itemID or not saleable then
         result.note = "No known auctionable output."
     end
