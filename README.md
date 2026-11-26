@@ -3,10 +3,20 @@
 Crafting costs and estimated auction profits inside the WoW Forever professions interface, using [Goldwright](https://www.curseforge.com/wow/addons/goldwright) prices.
 
 The selected recipe shows two material costs: minimum auction prices and market value.
-Each cost has two profits, selling the full craft at minimum or market value, after the AH fee.
+For auctionable items, each cost has two profits, selling the full craft at minimum or market value, after the AH fee.
 Positive profit is green; negative profit is red. Hover the panel for full amounts and details.
 
 ![BlazeCraftProfit showing crafting costs and profits for Black Silk Pack](images/crafting.png)
+
+Direct enchants show a compact cost display beside the target item slot. Craftable items
+within Enchanting retain the full profit table.
+
+![BlazeCraftProfit showing crafting costs beside the target slot for Enchant Weapon - Insight](images/enchant-cost.png)
+
+Bind on Pickup items show a **Cannot be auctioned (BoP)** heading and crafting costs,
+without profit columns.
+
+![BlazeCraftProfit showing crafting costs for a Bind on Pickup item](images/bop-cost.png)
 
 Vendor purchase prices take priority in both cost calculations. Opening a merchant records
 money-only, unlimited-stock offers at their per-item price. Prices are saved per character,

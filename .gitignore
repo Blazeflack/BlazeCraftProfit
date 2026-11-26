@@ -11,6 +11,8 @@
 !/images/
 /images/*
 !/images/crafting.png
+!/images/enchant-cost.png
+!/images/bop-cost.png
 !/.pkgmeta
 !/.github/
 /.github/*
