@@ -8,6 +8,11 @@ Positive profit is green; negative profit is red. Hover the panel for full amoun
 
 ![BlazeCraftProfit showing crafting costs and profits for Black Silk Pack](images/crafting.png)
 
+Hover the table to see a per-ingredient breakdown of crafting costs. Minimum and market
+values show the total cost for the quantity of each ingredient required by the recipe.
+
+![BlazeCraftProfit tooltip showing the ingredient cost breakdown for Runecloth Bag](images/ingredient-breakdown.png)
+
 Direct enchants show a compact cost display beside the target item slot. Craftable items
 within Enchanting retain the full profit table.
 
