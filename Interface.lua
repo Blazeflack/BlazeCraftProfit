@@ -63,19 +63,21 @@ local function showTooltip()
     GameTooltip:AddLine("BlazeCraftProfit", 1, 0.82, 0)
     GameTooltip:AddLine("All amounts are per craft, regardless of materials in your bags.", 1, 1, 1, true)
     GameTooltip:AddLine("Material prices: known vendor purchase price, otherwise Goldwright.", 1, 1, 1, true)
-    GameTooltip:AddLine("Vendor prices are learned from unlimited, money-only offers and saved per character.", 1, 1, 1, true)
-    local names = { "Minimum", "Market value" }
-    for row = 1, 2 do
-        GameTooltip:AddLine(" ")
-        GameTooltip:AddDoubleLine(names[row] .. " material cost", ns.Money(result.costs[row]))
-        if not costsOnly then
-            GameTooltip:AddDoubleLine("Profit selling at minimum", ns.Money(result.profits[row][1], true))
-            GameTooltip:AddDoubleLine("Profit selling at market value", ns.Money(result.profits[row][2], true))
-        end
+    GameTooltip:AddLine("Vendor prices are learned after visiting a vendor and saved per character.", 1, 1, 1, true)
+    GameTooltip:AddLine(" ")
+    GameTooltip:AddDoubleLine("Ingredients", "Total: Minimum / Market value")
+    for _, material in ipairs(result.materials or {}) do
+        local name = C_Item.GetItemInfo(material.itemID) or ("Item " .. material.itemID)
+        GameTooltip:AddDoubleLine(string.format("%g x %s", material.quantity, name),
+            ns.Money(material.costs[1]) .. "  /  " .. ns.Money(material.costs[2]),
+            1, 1, 1, 1, 1, 1)
+    end
+    if result.materialsComplete == false then
+        GameTooltip:AddLine("Some required ingredients could not be determined.", 1, 0.6, 0.3, true)
     end
     GameTooltip:AddLine(" ")
     if result.market and not costsOnly then
-        GameTooltip:AddLine(string.format("AH fee: %g%%. Deposits and failed auctions are not included.", result.market.cut * 100), 1, 1, 1, true)
+        GameTooltip:AddLine(string.format("AH fee of %g%% is included in profit calculations. Failed auctions will lower the profit as deposit is lost.", result.market.cut * 100), 1, 1, 1, true)
     elseif not result.market then
         GameTooltip:AddLine("Goldwright prices are unavailable.", 1, 0.6, 0.3, true)
     end
@@ -83,10 +85,6 @@ local function showTooltip()
         GameTooltip:AddLine(result.note, 1, 0.6, 0.3, true)
     elseif panel.costOnly then
         GameTooltip:AddLine("Craft cost only: this enchant modifies an item.", 1, 1, 1, true)
-    elseif result.variableOutput then
-        GameTooltip:AddLine(string.format("Estimated output: %g per craft (midpoint of %g-%g).", result.quantity, result.quantityMin, result.quantityMax), 1, 1, 1, true)
-    elseif result.quantity then
-        GameTooltip:AddLine(string.format("Output: %g per craft.", result.quantity), 1, 1, 1, true)
     end
     if costsOnly then
         GameTooltip:AddLine("Unknown means a required material price or reagent choice is unavailable.", 0.7, 0.7, 0.7, true)

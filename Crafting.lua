@@ -49,14 +49,16 @@ end
 
 function ns.Calculate(schematic, allocations, outputItemID, market, saleable)
     local materials, complete = ns.Materials(schematic, allocations)
-    local result = { costs = {}, profits = { {}, {} }, market = market }
+    local result = { costs = {}, profits = { {}, {} }, market = market, materials = materials, materialsComplete = complete }
     local sums, known = { 0, 0 }, { complete, complete }
     for _, material in ipairs(materials) do
         local minimum, value = ns.MaterialPrices(material.itemID, market)
         local prices = { minimum, value }
+        material.costs = {}
         for column = 1, 2 do
             if prices[column] then
-                sums[column] = sums[column] + prices[column] * material.quantity
+                material.costs[column] = prices[column] * material.quantity
+                sums[column] = sums[column] + material.costs[column]
             else
                 known[column] = false
             end

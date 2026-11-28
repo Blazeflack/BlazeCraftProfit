@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- The tooltip shown when hovering over the table now includes a per-ingredient breakdown of crafting costs.
+
 ## 0.1.1 — 2026-11-26
 
 - Add scrolling to keep crafting costs accessible when recipe materials fill the crafting window.
