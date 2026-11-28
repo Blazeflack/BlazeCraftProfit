@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2 — 2026-11-28
 
 - The tooltip shown when hovering over the table now includes a per-ingredient breakdown of crafting costs.
 
